@@ -1,0 +1,102 @@
+<!-- Single-file responsive landing page (mobile-only optimized)
+Instructions:
+1. Save as index.html and open in browser.
+2. This version is styled primarily for mobile viewports.
+-->
+
+<!doctype html>
+<html lang="ka">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+  <title>მობილური ლენდინგი</title>
+  <style>
+    :root {--accent:#4f46e5;--muted:#6b7280;--bg:#0f172a}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Arial, sans-serif;background:#0f172a;color:#fff;line-height:1.4;padding:16px}
+
+    header{text-align:center;margin-bottom:20px}
+    .logo{width:60px;height:60px;margin:0 auto 8px;background:linear-gradient(135deg,var(--accent),#06b6d4);border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:20px}
+    nav{margin-top:10px}
+    nav a{color:#ccc;text-decoration:none;margin:0 8px;font-size:14px}
+
+    h1{font-size:26px;margin-bottom:12px;text-align:center}
+    p.lead{font-size:15px;color:var(--muted);text-align:center;margin-bottom:20px}
+
+    .btn{display:block;width:100%;text-align:center;background:var(--accent);color:#fff;padding:12px;border:none;border-radius:8px;font-weight:600;margin-bottom:10px;cursor:pointer}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.2)}
+
+    .features{display:flex;flex-direction:column;gap:10px;margin:20px 0}
+    .feature{background:rgba(255,255,255,0.05);padding:12px;border-radius:8px;text-align:center;font-size:14px}
+
+    .card{background:rgba(255,255,255,0.05);padding:16px;border-radius:10px;margin-top:20px}
+    label{font-size:13px;color:var(--muted);display:block;margin-bottom:4px}
+    input{width:100%;padding:10px;border-radius:6px;border:1px solid rgba(255,255,255,.2);background:transparent;color:#fff;margin-bottom:12px}
+
+    footer{text-align:center;font-size:13px;color:var(--muted);margin-top:30px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">LP</div>
+    <strong>შენი პროდუქტი</strong>
+    <nav>
+      <a href="#features">ფუნქციები</a>
+      <a href="#pricing">ფასები</a>
+      <a href="#contact">კონტაქტი</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>გაყიდე მეტი მარტივად</h1>
+    <p class="lead">მობილური ოპტიმიზირებული ლენდინგ გვერდი.</p>
+
+    <button class="btn" id="primaryBtn">დაიწყე ახლა</button>
+    <button class="btn ghost" id="secondaryBtn">იხილე ფუნქციები</button>
+
+    <div class="features" id="features">
+      <div class="feature">მობილური ოპტიმიზაცია</div>
+      <div class="feature">სწრაფი ჩატვირთვა</div>
+      <div class="feature">მარტივი ფორმა</div>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-bottom:8px">მიიღე უფასო აქტივაცია</h3>
+      <form id="leadForm">
+        <label for="name">სახელი</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+        <button class="btn" type="submit">დაგზავნა</button>
+      </form>
+      <div id="msg" style="margin-top:10px;font-size:13px;color:var(--muted)"></div>
+    </div>
+
+    <section id="pricing" style="margin-top:20px">
+      <h2 style="font-size:20px;margin-bottom:8px">ფასები</h2>
+      <p style="font-size:14px;color:var(--muted)">საწყისი პაკეტი 29₾/თვე</p>
+    </section>
+  </main>
+
+  <footer id="contact">
+    © შენი კომპანია — hello@example.com
+  </footer>
+
+  <script>
+    const form=document.getElementById('leadForm');
+    const msg=document.getElementById('msg');
+    form.addEventListener('submit',e=>{
+      e.preventDefault();
+      msg.textContent='მადლობა, '+(form.name.value||'მეგობარო')+'!';
+      form.reset();
+    });
+    document.getElementById('primaryBtn').addEventListener('click',()=>{
+      document.getElementById('name').focus();
+    });
+    document.getElementById('secondaryBtn').addEventListener('click',()=>{
+      document.getElementById('features').scrollIntoView({behavior:'smooth'});
+    });
+  </script>
+</body>
+</html>
+
